@@ -6,12 +6,6 @@ pipeline {
                 sh './mvnw clean package -DskipTests'
             }
         }
-        stage('Debug - List Files') {
-            steps {
-                sh 'pwd'
-                sh 'ls -la'
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t user-service:1.0 .'

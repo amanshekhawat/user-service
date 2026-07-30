@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh 'docker stop user-preprod || true'
                 sh 'docker rm user-preprod || true'
-                sh 'docker run -d -p 8081:8081 --name user-preprod user-service:1.0'
+                sh 'docker run -d -p 8081:8081 --network app-network --name user-preprod user-service:1.0'
             }
         }
     }
